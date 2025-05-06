@@ -1,41 +1,48 @@
-## Exercise #5 - Data Modeling for Postgres + Python.
+# 🧪 Các Bài Tập Python cho Data Engineering
 
-In this fifth exercise you will work on a few different topics,
-data modeling, Python, and Postgres. These are common problems worked 
-on in data engineering.
+Đây là 5 bài tập thực hành sử dụng Python mô phỏng các công việc phổ biến trong lĩnh vực Data Engineering như tải file, web scraping, xử lý dữ liệu từ AWS S3, chuyển đổi JSON, và tương tác với PostgreSQL.
 
-#### Setup
-1. Change directories at the command line 
-   to be inside the `Exercise-5` folder `cd Exercises/Exercise-5`
-   
-2. Run `docker build --tag=exercise-5 .` to build the `Docker` image.
+---
 
-3. There is a file called `main.py` in the `Exercise-5` directory, this
-is where you `Python` code to complete the exercise should go.
-   
-4. Once you have finished the project or want to test run your code,
-   run the following command `docker-compose up run` from inside the `Exercises/Exercise-5` directory
+## ✅ Bài 1 – Tải File bằng Python
 
-#### Problems Statement
-There is a folder called `data` in this current directory, `Exercises/Exercise-5`. There are also
-3 `csv` files located in that folder. Open each one and examine it, the 
-first task is to create a `sql` script with the `DDL` to hold
-a `CREATE` statement for each data file. Remember to think about data types. 
-Also, this `CREATE` statements should include indexes for each table, as well
-as primary and foreign keys.
+Sử dụng thư viện `requests` để tải 10 file `.zip` từ internet, sau đó giải nén thành các file `.csv` và lưu vào thư mục `downloads` (được tạo tự động bằng Python). Mỗi file được đặt đúng tên gốc và file `.zip` được xóa sau khi giải nén.  
+➡️ **Kỹ năng**: làm việc với HTTP request, xử lý file và thư mục, giải nén dữ liệu.
 
-After you have finished this `sql` scripts, we must connect to `Postgres` using the `Python` package
-called `psycopg2`. Once connected we will run our `sql` scripts against the database.
+---
 
-Note: The default `main.py` script already has the Python connection configured to connect
-to the `Postgres` instance that is automatically spun up by `Docker` when you ran
-the `docker-compose up run` command (inside `Exercises/Exercise-5` directory).
+## ✅ Bài 2 – Web Scraping và Tải File
 
-Finally, we will use `psycopg2` to insert the data in each `csv` file into the table you created.
+Web scrape trang dữ liệu thời tiết của NOAA để tìm file có ngày sửa đổi là `2024-01-19 10:27`. Dùng Python phân tích HTML để lấy đúng tên file, sau đó tải về và dùng Pandas để tìm bản ghi có **nhiệt độ khô cao nhất**.  
+➡️ **Kỹ năng**: web scraping, xử lý HTML, dùng Pandas để phân tích dữ liệu.
 
-Generally, your script should do the following ...
-1. Examine each `csv` file in `data` folder. Design a `CREATE` statement for each file.
-2. Ensure you have indexes, primary and forgein keys.
-3. Use `psycopg2` to connect to `Postgres` on `localhost` and the default `port`.
-4. Create the tables against the database.
-5. Ingest the `csv` files into the tables you created, also using `psycopg2`.
+---
+
+## ✅ Bài 3 – Làm việc với AWS S3 qua Boto3
+
+Dùng thư viện `boto3` để tải file `.gz` từ bucket S3 `commoncrawl`, giải nén để lấy URL từ dòng đầu tiên và tiếp tục tải file dữ liệu tương ứng. Dữ liệu được in ra từng dòng bằng phương pháp **streaming** (không tải toàn bộ vào RAM).  
+➡️ **Kỹ năng**: thao tác với AWS S3, đọc file nén `.gz`, xử lý file lớn hiệu quả.
+
+---
+
+## ✅ Bài 4 – Chuyển JSON sang CSV trong thư mục phức tạp
+
+Duyệt toàn bộ thư mục `data` (có cấu trúc không đồng đều) để tìm file `.json`. Sau đó, làm phẳng các trường dữ liệu lồng nhau (như `{"coordinates": [...]}`) và chuyển đổi từng file JSON thành file `.csv` tương ứng.  
+➡️ **Kỹ năng**: đọc & ghi JSON/CSV, xử lý thư mục phức tạp, flatten dữ liệu.
+
+---
+
+## ✅ Bài 5 – Mô Hình Dữ Liệu với Postgres và Python
+
+Phân tích 3 file CSV trong thư mục `data` để viết câu lệnh `CREATE TABLE` với đầy đủ **kiểu dữ liệu**, **khóa chính/khóa ngoại**, và **index**. Dùng thư viện `psycopg2` để kết nối PostgreSQL, tạo bảng và chèn dữ liệu từ file CSV vào.  
+➡️ **Kỹ năng**: thiết kế schema, tạo bảng SQL, chèn dữ liệu vào PostgreSQL bằng Python.
+
+---
+
+## 🛠 Công Nghệ Sử Dụng
+
+- Python 3
+- requests, aiohttp, boto3, pandas, psycopg2
+- Docker & Docker Compose
+- PostgreSQL
+- HTML parsing (web scraping)
