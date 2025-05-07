@@ -3,7 +3,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import os
 
-
+# Gửi yêu cầu tải và tìm kiếm nội dung 
 def main():
     url_base = "https://www.ncei.noaa.gov/data/local-climatological-data/access/2021/"
     response = requests.get(url_base)
@@ -19,7 +19,7 @@ def main():
             key = i.find('a')['href']
             url = url_base + key
             resq = requests.get(url)
-            if resq.status_code == 200:
+            if resq.status_code == 200:                 #Ghi file vào ổ đĩa tạm thơi
                 with open(key,'wb') as file:
                     file.write(resq.content)
                 df = pd.read_csv(key,low_memory = False)
