@@ -1,3 +1,72 @@
+# 🧪 LAB 08 - Data Engineering: ETL Pipeline Cơ Bản
+
+## 👨‍💻 Thông tin sinh viên
+
+- Họ tên: Võ Thanh Nhã  
+- MSSV: 23709251
+- Lớp: DHKHDL19B
+
+---
+
+## 🎯 Mục tiêu của Lab
+
+- Hiểu quy trình xây dựng một pipeline ETL cơ bản.  
+- Thực hành trích xuất dữ liệu từ nguồn file và cơ sở dữ liệu.  
+- Làm sạch, biến đổi dữ liệu với Python + Pandas.  
+- Nạp dữ liệu vào PostgreSQL.  
+- Áp dụng Docker để triển khai môi trường linh hoạt.  
+- Giới thiệu về Airflow cho tự động hóa.
+
+---
+
+## 🛠️ Công cụ sử dụng
+
+- Python, Pandas  
+- MySQL, PostgreSQL  
+- Docker  
+- Apache Airflow  
+- CSV file (dữ liệu mẫu)  
+- DBeaver / PgAdmin (truy vấn DB)
+
+---
+
+## 📌 Quy trình thực hiện
+
+### 1. Extract
+- Tải dữ liệu từ file CSV và cơ sở dữ liệu MySQL.
+- Dùng Python để đọc dữ liệu từ cả hai nguồn.
+
+### 2. Transform
+- Dùng Pandas để xử lý thiếu dữ liệu, chuẩn hóa định dạng, đổi tên cột.
+- Kết hợp các bảng dữ liệu nếu cần.
+
+### 3. Load
+- Kết nối PostgreSQL bằng SQLAlchemy.
+- Nạp dữ liệu đã xử lý vào các bảng tương ứng.
+
+### 4. Orchestrate
+- Viết DAG trong Airflow gồm các task: extract → transform → load.
+- Chạy pipeline tự động theo lịch định sẵn (daily).
+
+---
+
+## 📈 Kết quả
+
+- Dữ liệu được trích xuất và xử lý thành công.
+- Nạp dữ liệu vào PostgreSQL đúng định dạng.
+- Pipeline ETL chạy mượt thông qua Airflow.
+- Có thể mở rộng cho các tập dữ liệu lớn hơn.
+
+---
+
+## 📸 Hình ảnh minh họa
+
+> _Chèn ảnh pipeline hoặc kết quả bằng cú pháp sau nếu cần:_
+
+```markdown
+![Pipeline ETL](https://link-to-your-image.png)
+
+#Lab 9
 # 🧪 Các Bài Tập Python cho Data Engineering
 
 Đây là 5 bài tập thực hành sử dụng Python mô phỏng các công việc phổ biến trong lĩnh vực Data Engineering như tải file, web scraping, xử lý dữ liệu từ AWS S3, chuyển đổi JSON, và tương tác với PostgreSQL.
