@@ -59,12 +59,6 @@
 
 ---
 
-## 📸 Hình ảnh minh họa
-
-> _Chèn ảnh pipeline hoặc kết quả bằng cú pháp sau nếu cần:_
-
-```markdown
-![Pipeline ETL](https://link-to-your-image.png)
 
 #Lab 9
 # 🧪 Các Bài Tập Python cho Data Engineering
