@@ -60,7 +60,7 @@
 ---
 
 
-#Lab 9
+# Lab 9
 # 🧪 Các Bài Tập Python cho Data Engineering
 
 Đây là 5 bài tập thực hành sử dụng Python mô phỏng các công việc phổ biến trong lĩnh vực Data Engineering như tải file, web scraping, xử lý dữ liệu từ AWS S3, chuyển đổi JSON, và tương tác với PostgreSQL.
